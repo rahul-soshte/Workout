@@ -1,13 +1,10 @@
 package com.example.hunter.workout;
 
 import android.app.Activity;
-
 import android.app.Fragment;
+import android.app.FragmentTransaction;
+
 import android.os.Bundle;
-
-
-import static com.example.hunter.workout.R.id.detail_frag;
-
 
 public class MainActivity extends Activity implements WorkoutListFragment.WorkoutListListener {
 
@@ -22,6 +19,14 @@ public class MainActivity extends Activity implements WorkoutListFragment.Workou
     public void itemClicked(long id)
     {
         //the code to set the detail will go here
+        WorkoutDetailFragment details=new WorkoutDetailFragment();
+        FragmentTransaction ft=getFragmentManager().beginTransaction();
+        details.setWorkout(id);
+        ft.replace(R.id.fragment_container,details);
+        ft.addToBackStack(null);
+        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        ft.commit();
+
 
     }
 }

@@ -25,6 +25,11 @@ private long workoutId;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+if(savedInstanceState != null)
+{
+    workoutId=savedInstanceState.getLong("workoutId");
+
+}
         return inflater.inflate(R.layout.fragment_workout_detail, container, false);
     }
     @Override
@@ -40,6 +45,12 @@ Workout workout=Workout.workouts[(int) workoutId];
             description.setText(workout.getDescription());
 
         }
+    }
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState)
+    {
+        savedInstanceState.putLong("workoutId",workoutId);
+
     }
     public void setWorkout(long id)
     {

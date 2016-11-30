@@ -13,9 +13,8 @@
         android:layout_height="match_parent"
 
     />
-    <fragment
-        class="com.example.hunter.workout.WorkoutDetailFragment"
-        android:id="@+id/detail_frag"
+    <FrameLayout
+       android:id="@+id/fragment_container"
         android:layout_height="match_parent"
         android:layout_width="0dp"
         android:layout_weight="3"
